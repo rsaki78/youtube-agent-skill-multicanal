@@ -23,11 +23,14 @@ https://github.com/Jakeschincariol/youtube-agent-skill
 Install this skill, then confirm /yt-script works.
 ```
 
-Or do it yourself, in Claude Code:
+Or do it yourself, in Claude Code. This fork is per channel: install it into each channel's project
+folder, not into `~/.claude/skills/`, so every channel keeps its own skills and its own voice:
 
 ```bash
-git clone https://github.com/Jakeschincariol/youtube-agent-skill.git
-cp -r youtube-agent-skill/skills/yt-* ~/.claude/skills/
+git clone https://github.com/rsaki78/youtube-agent-skill-multicanal.git
+mkdir -p <channel-folder>/.claude/skills <channel-folder>/.claude/youtube
+cp -r youtube-agent-skill-multicanal/skills/yt-* <channel-folder>/.claude/skills/
+cp youtube-agent-skill-multicanal/templates/voice.md <channel-folder>/.claude/youtube/voice.md
 ```
 
 Or as a plugin:
@@ -37,14 +40,14 @@ Or as a plugin:
 /plugin install youtube-agent
 ```
 
-Project-local instead of global: copy the same folders into your repo's `.claude/skills/`. No Claude
-Code at all? Paste any single `SKILL.md` at the top of a chat and it runs as a mode. You lose the six
+No Claude Code at all? Paste any single `SKILL.md` at the top of a chat and it runs as a mode. You lose the six
 Python tools, which is most of the point of `/yt-script`, `/yt-retention` and `/yt-edit`, but the
 rest works.
 
-Then spend ten minutes on [`templates/voice.md`](templates/voice.md). Copy it to
-`~/.claude/youtube/voice.md` and fill it in, or send Claude three of your own videos and say "write
-my voice.md from these". Every skill reads that file. It matters more here than anywhere else,
+Then spend ten minutes on [`templates/voice.md`](templates/voice.md). Fill in the channel's
+`.claude/youtube/voice.md`, or open Claude Code in the channel folder, send it three of the channel's
+videos and say "write my voice.md from these". Every skill reads that file, and only the one in the
+current project, so two channels never share a voice. It matters more here than anywhere else,
 because you have to say the words out loud.
 
 ## The eleven
