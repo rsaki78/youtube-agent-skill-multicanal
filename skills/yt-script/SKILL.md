@@ -24,9 +24,10 @@ python3 hookscore.py --hook "one line"      # score a single one
 1. Read `.claude/youtube/voice.md` in the current project if it exists. Each channel lives in its
    own project folder with its own profile, so never read or write `~/.claude/youtube/voice.md`.
    That is the user's voice profile: how they talk on camera, the words they never use, who they
-   are talking to, what they will not claim. If it does not exist, ask for **three of their own
-   videos**, read or transcribe them, infer the voice, and write the file to
-   `.claude/youtube/voice.md` in the current project. A script in the wrong voice is worse than no script, because they have to
+   are talking to, what they will not claim. If it does not exist, or is still the blank
+   template, run `/yt-voice`: it builds the file from the user's own videos or, for a channel with
+   none yet, from a recorded voice test. Read `.claude/youtube/style.md` too if it exists - the
+   format, cadence and packaging rules for this channel. A script in the wrong voice is worse than no script, because they have to
    read it out loud.
 2. Never invent a number, a result or a source. If a figure would strengthen it and you do not have
    one, ask for it or write the line without it.
@@ -46,12 +47,16 @@ click the title promised, open a question the viewer cannot close, and prove the
 4. **The payoff.** Deliver the thing the hook promised, explicitly, and say that you are delivering
    it: "that is the prompt, it is in the description".
 5. **The close.** One ask. Not three.
+6. **Say it in their voice.** Save the script as plain text and run
+   `../yt-voice/voiceprint.py <their transcripts> --against script.txt`. Fix the address first if it
+   does not match, then every phrase it lists under "never said" that does not sound like them.
 
 ## What to hand back
 
 - the two best hooks with their scored panels
 - the script, beat by beat, with `[ON SCREEN: ...]` on every beat
-- the runtime estimate at 150 words per minute
+- the runtime estimate at the pace measured in `voice.md`, or 150 words per minute without one
+- what `voiceprint.py --against` caught, and what you changed
 - one line naming which formula the winning hook used and why it fits this idea
 
 ## The gate
