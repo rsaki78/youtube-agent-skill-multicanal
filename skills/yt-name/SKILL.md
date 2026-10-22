@@ -82,8 +82,20 @@ before deciding.
 A table of five: name, kind, best handle with its status, why it fits the sub-niche in one line,
 and the risk in one line. Then ONE recommendation and why, and the runner-up.
 
-Then the urgent part: **claim the handle today.** A free handle is free until someone else takes it.
-Give the steps in YouTube Studio: Customization, Basic info, Handle.
+Then the urgent part: **claim the handle today.** A free handle is free until someone else takes it,
+and a handle can only be claimed by a channel - so for a new channel, claiming it means creating the
+channel now. Give the steps for their case:
+
+- **No channel yet:** on youtube.com, signed in, the profile picture menu has "Create a channel".
+  The flow asks for the name and the handle - use the chosen ones.
+- **Their Google account already has a personal channel** and this one should be separate: YouTube
+  settings, "Add or manage your channel(s)", "Create a new channel". It gets its own name and handle,
+  and can have other managers later.
+- **The channel already exists:** YouTube Studio, Customization, Basic info, Handle.
+
+YouTube moves these menus around; if a label does not match, say what to look for rather than
+insisting on the path. Creating the channel publishes nothing - it is an empty channel until the
+first upload - but it is the user's action, not this skill's.
 
 ## What to write
 

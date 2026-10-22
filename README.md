@@ -60,7 +60,8 @@ recording of you explaining something to a friend.
 ## Starting from zero
 
 Run `/yt-launch` and it walks these in order, keeping its place in `.claude/youtube/channel.md` so
-it can take a week of evenings. Each one also runs on its own.
+it can take a week of evenings. Each one also runs on its own. First time? The walkthrough, in
+Spanish, is [`docs/empezar-desde-cero.md`](docs/empezar-desde-cero.md).
 
 | command | what it does |
 | --- | --- |
