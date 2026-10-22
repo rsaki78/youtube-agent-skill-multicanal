@@ -31,6 +31,7 @@ git clone https://github.com/rsaki78/youtube-agent-skill-multicanal.git
 mkdir -p <channel-folder>/.claude/skills <channel-folder>/.claude/youtube
 cp -r youtube-agent-skill-multicanal/skills/yt-* <channel-folder>/.claude/skills/
 cp youtube-agent-skill-multicanal/templates/voice.md <channel-folder>/.claude/youtube/voice.md
+cp youtube-agent-skill-multicanal/templates/channel.md <channel-folder>/.claude/youtube/channel.md
 ```
 
 Or as a plugin:
