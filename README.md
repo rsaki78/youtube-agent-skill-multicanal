@@ -1,7 +1,7 @@
 # The YouTube agent skill
 
-Eleven Claude skills that run a YouTube channel. Free, MIT, no signup, no API key, nothing to
-connect.
+Eighteen Claude skills for a YouTube channel: seven that take it from nothing to ready for its first
+upload, eleven that run it once it exists. Free, MIT, no signup, no API key, nothing to connect.
 
 One of them writes your script off 21 hook formulas and scores the hook before you waste a take on
 it. One lints the title and the thumbnail as a single pairing, because writing them separately is
@@ -10,6 +10,11 @@ and tells you the exact second people left and what you were saying when they di
 transcript into an edit decision list. One finds the Shorts already hiding inside a long video. One
 goes and finds what is working in your niche and ranks it by how far each video beat its own
 channel, not by how big the channel is.
+
+And if there is no channel yet, `/yt-launch` builds one in order: the niche and sub-niche, checked
+for whether small channels still break out there; the reference channels; five names with handles
+checked against YouTube; the voice, measured from a recording of you talking; the logo and banner,
+previewed at the size people actually see them; and the description.
 
 **Nothing gets published until you do it.** These skills write. You upload.
 
@@ -41,7 +46,7 @@ Or as a plugin:
 /plugin install youtube-agent
 ```
 
-No Claude Code at all? Paste any single `SKILL.md` at the top of a chat and it runs as a mode. You lose the six
+No Claude Code at all? Paste any single `SKILL.md` at the top of a chat and it runs as a mode. You lose the twelve
 Python tools, which is most of the point of `/yt-script`, `/yt-retention` and `/yt-edit`, but the
 rest works.
 
@@ -49,9 +54,25 @@ Then spend ten minutes on [`templates/voice.md`](templates/voice.md). Fill in th
 `.claude/youtube/voice.md`, or open Claude Code in the channel folder, send it three of the channel's
 videos and say "write my voice.md from these". Every skill reads that file, and only the one in the
 current project, so two channels never share a voice. It matters more here than anywhere else,
-because you have to say the words out loud.
+because you have to say the words out loud. No videos yet? `/yt-voice` writes it from a two-minute
+recording of you explaining something to a friend.
 
-## The eleven
+## Starting from zero
+
+Run `/yt-launch` and it walks these in order, keeping its place in `.claude/youtube/channel.md` so
+it can take a week of evenings. Each one also runs on its own.
+
+| command | what it does |
+| --- | --- |
+| `/yt-launch` | Where you are, what is next, and the step itself. Picks up where you stopped. |
+| `/yt-niche` | Niche, then sub-niche, scored, with room measured: are small channels breaking out there, recently? |
+| `/yt-refs` | Reference channels in three tiers - aspirational, peers at your size, adjacent - and what to take from each. |
+| `/yt-name` | Five names of different kinds, each with a handle linted against YouTube's rules and checked against what is taken. |
+| `/yt-voice` | `voice.md` measured from you talking, and `style.md`: format, cadence, pillars, the numbers worth watching. |
+| `/yt-brand` | Palette, logo and banner as prompts for any image generator, previewed at desktop, mobile, TV and comment size. |
+| `/yt-about` | The channel description in 1,000 characters, linted, and the rest of the Studio setup. |
+
+## Running the channel
 
 | command | what it does |
 | --- | --- |
@@ -67,7 +88,7 @@ because you have to say the words out loud.
 | `/yt-chapters` | Chapters from a transcript, validated against YouTube's own rules so they render. |
 | `/yt-audit` | The whole channel, ending in ONE fix rather than twenty. |
 
-## The six tools
+## The twelve tools
 
 Every one of these runs on a clean Python 3 with no dependencies. They are the reason the skills are
 not just prompts.
@@ -79,7 +100,16 @@ python3 skills/yt-edit/deadair.py transcript.srt               # edit decision l
 python3 skills/yt-chapters/chapters.py transcript.srt          # validated chapters
 python3 skills/yt-retention/retention.py retention.csv         # where they left, and why
 python3 skills/yt-viral/swipe.py collected.json --min 2.0      # outliers by own-channel multiple
+python3 skills/yt-niche/room.py research/niche/                # is there room, niche by niche
+python3 skills/yt-refs/refs.py research/refs/                  # reference channels profiled
+python3 skills/yt-name/handle.py "Channel Name" --check        # handles, linted and looked up
+python3 skills/yt-voice/voiceprint.py voicetest.srt            # how you actually talk
+python3 skills/yt-brand/brandkit.py --name "..." --palette ... # logo, banner and palette preview
+python3 skills/yt-about/about.py description.txt               # channel description linter
 ```
+
+`room.py` and `refs.py` read what `yt-dlp` collects. yt-dlp is the one outside tool the from-zero
+research uses; the twelve tools themselves still need nothing but Python.
 
 ## The fine print
 
@@ -102,6 +132,17 @@ its views.
 
 **`/yt-viral` reads, it does not scrape.** Public listings only. It never logs in as you and never
 touches your credentials.
+
+**`room.py` is about your sample, not the market.** It says whether the small channels you collected
+are breaking out. Collect only big channels and every niche looks closed.
+
+**A free handle is a hint, not a reservation.** `handle.py --check` reads a 404 from
+`youtube.com/@handle` as "probably free"; reserved and terminated handles 404 too. Studio has the
+final word, and nothing here checks Instagram, TikTok or domains, because their pages hide behind
+logins and any answer would be a guess.
+
+**It does not make your logo.** `/yt-brand` writes the prompts and checks what comes back; the image
+generator is yours to choose.
 
 **Tags barely matter** and this pack says so instead of selling you a tag generator.
 

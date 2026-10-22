@@ -4,6 +4,9 @@ The channel before it exists. Lives at `.claude/youtube/channel.md` inside the c
 folder, next to `voice.md`. One file per channel. Each from-zero skill writes its own section and
 reads the ones before it, so a section left `pending` is where the next run picks up.
 
+A status is `pending`, `unvalidated` (brought by the user, not checked), `review` (something it
+depends on changed) or `locked`. `/yt-launch` reads them to know where you are.
+
 Do not edit a `locked` section by hand and expect the others to follow - re-run the skill that owns
 it, so whatever depends on it gets flagged.
 
