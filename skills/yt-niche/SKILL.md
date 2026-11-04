@@ -25,7 +25,7 @@ python3 room.py .claude/youtube/research/niche/      # is there room, candidate 
 ## Before you start
 
 1. Read `.claude/youtube/channel.md` in the current project. If it does not exist, create it from
-   `templates/channel.md` in this pack. Never read or write `~/.claude/youtube/`; each channel lives
+   `../yt-launch/templates/channel.md`. Never read or write `~/.claude/youtube/`; each channel lives
    in its own project folder. If `## Niche` is already `locked`, ask whether they are revisiting it
    before touching it - everything after it was built on that line.
 2. Never invent a number, a result or a source. That includes RPM: it moves with country, language

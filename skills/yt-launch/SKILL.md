@@ -37,8 +37,8 @@ Everything lives in `.claude/youtube/` inside the channel's project folder - nev
 ## Every run
 
 1. **Read `.claude/youtube/channel.md`.** If it does not exist, create it from
-   `templates/channel.md` in this pack, and copy `templates/voice.md` to `.claude/youtube/` if that is
-   missing too.
+   `templates/channel.md` in this skill's folder, and copy `templates/voice.md` from there to
+   `.claude/youtube/` if that is missing too.
 2. **Say where they are.** One line per step with its status, then the next one, named. Not a
    lecture - a position.
 3. **Run the next step** by following its skill. ONE step per run unless the user asks for more:

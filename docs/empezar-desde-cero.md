@@ -6,7 +6,7 @@ te acompaña en cada decisión, en orden, y te entrega todo listo para que tú l
 ## Antes de empezar
 
 1. **Claude Code** instalado.
-2. **Python 3** - compruébalo con `python3 --version`.
+2. **Python 3** - compruébalo con `python3 --version` (en Windows puede ser `py --version`).
 3. **yt-dlp** - `pip install yt-dlp`. Sirve para investigar otros canales; solo lee páginas
    públicas, nunca entra a tu cuenta.
 4. **Una cuenta de Google** - la vas a necesitar en el paso 3 para crear el canal.
@@ -17,11 +17,20 @@ Cada canal vive en su propia carpeta, con sus propias skills y su propia voz:
 
 ```bash
 git clone https://github.com/rsaki78/youtube-agent-skill-multicanal.git
-mkdir -p mi-canal/.claude/skills mi-canal/.claude/youtube
+mkdir -p mi-canal/.claude/skills
 cp -r youtube-agent-skill-multicanal/skills/yt-* mi-canal/.claude/skills/
-cp youtube-agent-skill-multicanal/templates/voice.md mi-canal/.claude/youtube/
-cp youtube-agent-skill-multicanal/templates/channel.md mi-canal/.claude/youtube/
 ```
+
+O como plugin, desde la carpeta del canal:
+
+```bash
+claude plugin marketplace add rsaki78/youtube-agent-skill-multicanal
+claude plugin install youtube-agent-multicanal@youtube-agent-skill-multicanal --scope project
+```
+
+Los archivos de `.claude/youtube/` (`channel.md`, `voice.md`) los crea `/yt-launch` la primera vez.
+
+Las herramientas se corren con `python3`. En Windows, si ese comando no existe, usa `py` o `python`.
 
 Abre Claude Code dentro de `mi-canal` y escribe:
 

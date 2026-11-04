@@ -20,37 +20,47 @@ previewed at the size people actually see them; and the description.
 
 ## Install
 
-Paste this into Claude:
+This is the multi-channel fork of [Jake Schincariol's YouTube agent skill](https://github.com/Jakeschincariol/youtube-agent-skill).
+Each channel lives in its own project folder, and everything about it - `channel.md`, `voice.md`,
+`style.md`, the research, the brand files - lives in that folder's `.claude/youtube/`. The skills are
+the same for every channel; where you install them is up to you.
+
+Open Claude Code in the channel's folder and paste this:
 
 ```
-https://github.com/Jakeschincariol/youtube-agent-skill
+https://github.com/rsaki78/youtube-agent-skill-multicanal
 
-Install this skill, then confirm /yt-script works.
+Install the skills from this repo into .claude/skills/ of the current project, not into
+~/.claude/skills/, then confirm /yt-launch works.
 ```
 
-Or do it yourself, in Claude Code. This fork is per channel: install it into each channel's project
-folder, not into `~/.claude/skills/`, so every channel keeps its own skills and its own voice:
+Or do it yourself, per channel:
 
 ```bash
 git clone https://github.com/rsaki78/youtube-agent-skill-multicanal.git
-mkdir -p <channel-folder>/.claude/skills <channel-folder>/.claude/youtube
+mkdir -p <channel-folder>/.claude/skills
 cp -r youtube-agent-skill-multicanal/skills/yt-* <channel-folder>/.claude/skills/
-cp youtube-agent-skill-multicanal/templates/voice.md <channel-folder>/.claude/youtube/voice.md
-cp youtube-agent-skill-multicanal/templates/channel.md <channel-folder>/.claude/youtube/channel.md
 ```
 
-Or as a plugin:
+Or as a plugin. Run it from the channel's folder with `--scope project` to keep it to that channel,
+or leave the scope out to install it once for every project - the channel's data stays per folder
+either way:
 
+```bash
+claude plugin marketplace add rsaki78/youtube-agent-skill-multicanal
+claude plugin install youtube-agent-multicanal@youtube-agent-skill-multicanal --scope project
 ```
-/plugin marketplace add Jakeschincariol/youtube-agent-skill
-/plugin install youtube-agent
-```
+
+The first skill that needs `.claude/youtube/channel.md` or `voice.md` creates it from the templates
+in [`skills/yt-launch/templates/`](skills/yt-launch/templates/).
+
+The tools are run as `python3`. On Windows, if that command does not exist, use `py` or `python`.
 
 No Claude Code at all? Paste any single `SKILL.md` at the top of a chat and it runs as a mode. You lose the twelve
 Python tools, which is most of the point of `/yt-script`, `/yt-retention` and `/yt-edit`, but the
 rest works.
 
-Then spend ten minutes on [`templates/voice.md`](templates/voice.md). Fill in the channel's
+Then spend ten minutes on [`voice.md`](skills/yt-launch/templates/voice.md). Fill in the channel's
 `.claude/youtube/voice.md`, or open Claude Code in the channel folder, send it three of the channel's
 videos and say "write my voice.md from these". Every skill reads that file, and only the one in the
 current project, so two channels never share a voice. It matters more here than anywhere else,

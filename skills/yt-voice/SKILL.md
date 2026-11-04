@@ -69,7 +69,7 @@ What a transcript cannot show. Ask, in one message:
 
 ### Write it
 
-Follow the sections of `templates/voice.md`. Add `## Measured` at the end: the voiceprint, the
+Follow the sections of `../yt-launch/templates/voice.md`. Add `## Measured` at the end: the voiceprint, the
 source, and the date. Paste the best two minutes of transcript into "How I actually talk".
 
 ## style.md - how the channel is made
