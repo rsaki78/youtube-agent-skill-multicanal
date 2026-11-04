@@ -1,11 +1,13 @@
 ---
 name: yt-niche
 description: >-
-  Choose the niche, then the sub-niche, for a YouTube channel that does not
-  exist yet - validated against whether small channels are still breaking
-  out, not against what sounds good. Use for "what should my channel be
-  about", "pick a niche", "find a sub-niche", "is this niche saturated", or
-  starting a channel from zero.
+  Choose the niche, then the sub-niche, for a YouTube channel that does
+  not exist yet - validated against whether small channels are still
+  breaking out, not against what sounds good. Use for "what should my
+  channel be about", "pick a niche", "find a sub-niche", "is this niche
+  saturated", or starting a channel from zero. En español: "qué nicho
+  elijo", "de qué hago mi canal", "busca un subnicho", "está saturado este
+  nicho".
 ---
 
 # yt-niche

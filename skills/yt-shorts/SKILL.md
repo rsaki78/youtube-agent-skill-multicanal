@@ -2,8 +2,9 @@
 name: yt-shorts
 description: >-
   Find the Shorts hiding inside a long video and write them, using the
-  transcript to pick self-contained moments. Use for "cut this into shorts",
-  "clip this", "repurpose this video", "what should I clip".
+  transcript to pick self-contained moments. Use for "cut this into
+  shorts", "clip this", "repurpose this video", "what should I clip". En
+  español: "sácale shorts", "recorta este video", "qué clips saco".
 ---
 
 # yt-shorts

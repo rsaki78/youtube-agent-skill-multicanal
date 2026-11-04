@@ -4,6 +4,8 @@ description: >-
   Audit a YouTube channel end to end - packaging, consistency, the first
   fifteen seconds, and what to fix first. Use for "audit my channel", "why
   isn't my channel growing", "review my videos", or a pasted channel URL.
+  En español: "audita mi canal", "por qué no crece mi canal", "revisa mis
+  videos".
 ---
 
 # yt-audit

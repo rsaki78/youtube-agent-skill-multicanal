@@ -3,8 +3,9 @@ name: yt-edit
 description: >-
   Turn a raw recording's transcript into an edit decision list - dead air,
   filler cues and retakes, with timecodes. Use for "edit this", "cut the
-  dead space", "tighten this video", "I rambled", or any request to shorten
-  footage from a transcript.
+  dead space", "tighten this video", "I rambled", or any request to
+  shorten footage from a transcript. En español: "edita este video",
+  "quita los silencios", "dónde corto", "lista de cortes".
 ---
 
 # yt-edit

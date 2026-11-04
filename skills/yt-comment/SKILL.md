@@ -1,9 +1,11 @@
 ---
 name: yt-comment
 description: >-
-  Draft replies to YouTube comments in the creator's voice, triaged by which
-  ones are worth answering. Use for "reply to my comments", "handle the
-  comment section", "someone asked X", or a pasted comment thread.
+  Draft replies to YouTube comments in the creator's voice, triaged by
+  which ones are worth answering. Use for "reply to my comments", "handle
+  the comment section", "someone asked X", or a pasted comment thread. En
+  español: "responde los comentarios", "qué comentario fijo", "contesta en
+  mi voz".
 ---
 
 # yt-comment

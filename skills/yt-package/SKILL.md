@@ -1,10 +1,12 @@
 ---
 name: yt-package
 description: >-
-  Write and lint the title and thumbnail for a YouTube video as one pairing,
-  checking truncation, duplication and vagueness before publish. Use for
-  "title ideas", "what should I call this", "thumbnail text", "my CTR is
-  bad", packaging, or any request to rename or repackage an existing video.
+  Write and lint the title and thumbnail for a YouTube video as one
+  pairing, checking truncation, duplication and vagueness before publish.
+  Use for "title ideas", "what should I call this", "thumbnail text", "my
+  CTR is bad", packaging, or any request to rename or repackage an
+  existing video. En español: "ideas de título", "texto para la
+  miniatura", "título y miniatura", "mi CTR está bajo".
 ---
 
 # yt-package

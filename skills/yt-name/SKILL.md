@@ -4,7 +4,9 @@ description: >-
   Name a new YouTube channel - five names of different kinds, each with a
   handle that follows YouTube's rules and has been checked against what is
   already taken. Use for "name my channel", "channel name ideas", "what
-  should my handle be", "is this name taken", or after /yt-refs.
+  should my handle be", "is this name taken", or after /yt-refs. En
+  español: "nombre para mi canal", "ideas de nombre", "qué handle uso",
+  "está ocupado este nombre".
 ---
 
 # yt-name

@@ -5,7 +5,9 @@ description: >-
   line written to stand alone - plus the links, the contact email and the
   rest of the Studio fields a new channel needs filled before its first
   upload. Use for "channel description", "about section", "write my
-  channel bio", "set up my channel", or after /yt-brand.
+  channel bio", "set up my channel", or after /yt-brand. En español:
+  "descripción del canal", "sección acerca de", "bio del canal",
+  "configura mi canal".
 ---
 
 # yt-about

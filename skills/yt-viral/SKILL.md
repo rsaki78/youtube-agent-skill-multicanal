@@ -2,9 +2,11 @@
 name: yt-viral
 description: >-
   Find what is actually working in the user's niche on YouTube and rank it
-  by how far each video beat its own channel, then name the formula. Use for
-  "what's working right now", "find viral videos in my niche", "why did this
-  blow up", competitor research, or a swipe file.
+  by how far each video beat its own channel, then name the formula. Use
+  for "what's working right now", "find viral videos in my niche", "why
+  did this blow up", competitor research, or a swipe file. En español:
+  "qué está funcionando", "videos virales de mi nicho", "por qué explotó
+  este video", "investiga a la competencia".
 ---
 
 # yt-viral

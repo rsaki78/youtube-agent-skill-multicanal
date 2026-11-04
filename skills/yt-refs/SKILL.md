@@ -5,7 +5,8 @@ description: >-
   aspirational ones, the peers growing at your size, and the adjacent ones
   ideas get borrowed from - and say what to take from each. Use for "find
   channels like mine", "who should I study", "reference channels",
-  "competitors", or after /yt-niche.
+  "competitors", or after /yt-niche. En español: "canales de referencia",
+  "canales como el mío", "a quién estudio".
 ---
 
 # yt-refs

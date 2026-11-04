@@ -3,8 +3,9 @@ name: yt-retention
 description: >-
   Read a YouTube Studio audience-retention export and find where viewers
   actually leave, then say what to change. Use for "why do people stop
-  watching", "my retention is bad", a pasted retention chart or CSV, or "fix
-  my pacing".
+  watching", "my retention is bad", a pasted retention chart or CSV, or
+  "fix my pacing". En español: "retención de audiencia", "dónde se va la
+  gente", "por qué abandonan el video".
 ---
 
 # yt-retention

@@ -4,8 +4,10 @@ description: >-
   Take a YouTube channel from nothing to ready-for-the-first-upload, one
   step at a time - niche, references, name and handle, voice and style,
   brand, description - picking up wherever it was left. Use for "start a
-  YouTube channel", "create a channel from scratch", "where was I", "what's
-  next for my channel", or a new channel folder with no channel.md.
+  YouTube channel", "create a channel from scratch", "where was I",
+  "what's next for my channel", or a new channel folder with no
+  channel.md. En español: "empezar un canal", "crear un canal desde cero",
+  "qué sigue en mi canal", "dónde me quedé".
 ---
 
 # yt-launch

@@ -4,7 +4,8 @@ description: >-
   Plan a week or a month of YouTube uploads - what to post, when, and in
   what order, sized to the creator's actual capacity. Use for "plan my
   week", "content calendar", "what should I post", "I have no idea what to
-  make next".
+  make next". En español: "planéame la semana", "calendario de contenido",
+  "qué publico", "no sé qué hacer después".
 ---
 
 # yt-plan

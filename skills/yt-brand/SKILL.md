@@ -5,7 +5,8 @@ description: >-
   as prompts for any image generator, then check the results against
   YouTube's sizes and preview them where YouTube actually shows them. Use
   for "make my logo", "channel banner", "channel art", "profile picture",
-  "brand colours", or after /yt-voice.
+  "brand colours", or after /yt-voice. En español: "hazme el logo",
+  "banner del canal", "foto de perfil", "colores del canal".
 ---
 
 # yt-brand

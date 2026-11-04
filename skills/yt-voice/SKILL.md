@@ -3,9 +3,11 @@ name: yt-voice
 description: >-
   Build the channel's voice.md and style.md - how the creator actually
   sounds, measured from them talking, and how the channel is made: format,
-  cadence, pillars, packaging rules and the numbers worth watching. Works for
-  a channel with no videos yet. Use for "write my voice.md", "define my
-  style", "how should my videos sound", a new channel, or after /yt-name.
+  cadence, pillars, packaging rules and the numbers worth watching. Works
+  for a channel with no videos yet. Use for "write my voice.md", "define
+  my style", "how should my videos sound", a new channel, or after
+  /yt-name. En español: "define mi voz", "escribe mi voice.md", "mi
+  estilo", "cómo deben sonar mis videos".
 ---
 
 # yt-voice
