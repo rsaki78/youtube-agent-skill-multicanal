@@ -47,7 +47,8 @@ Desde aquí el plugin te guía. Hace **un paso por sesión**. Cuando vuelvas otr
 ### 1. Nicho y subnicho - `/yt-niche`
 
 **Tú:** respondes cinco preguntas - de qué podrías hacer 100 videos, qué sabes que otros no, si
-sales a cámara y cuántas horas tienes a la semana, para qué país e idioma, y para qué quieres el
+sales a cámara o será un canal sin cara (con tu voz, con un narrador o con voz IA), cuántas
+horas tienes a la semana, para qué país e idioma, y para qué quieres el
 canal. De 20 títulos que te propone, marcas los que sí harías.
 
 **Claude:** investiga canales reales de cada nicho candidato y te dice si hay espacio: si los
@@ -92,6 +93,10 @@ velocidad - y escribe dos archivos:
 - **`voice.md`** - cómo suenas. Desde aquí, todos los guiones se escriben con tu voz.
 - **`style.md`** - duración de los videos, cuántos por semana, tus 3-4 tipos de video y qué métricas
   mirar.
+
+**¿Canal con narrador o voz IA?** No grabas la prueba de voz: defines al personaje que narra (cómo
+habla, cómo trata al espectador) y, con voz IA, la configuración de la voz y la lista de palabras
+que debe pronunciar bien. Después Claude mide la primera narración para fijar el ritmo de los guiones.
 
 ### 5. Logo y banner - `/yt-brand`
 

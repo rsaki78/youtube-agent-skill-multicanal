@@ -52,6 +52,22 @@ click the title promised, open a question the viewer cannot close, and prove the
    `../yt-voice/voiceprint.py <their transcripts> --against script.txt`. Fix the address first if it
    does not match, then every phrase it lists under "never said" that does not sound like them.
 
+## Faceless
+
+Read `format:` in `.claude/youtube/channel.md`. Anything but `camera` changes three things:
+
+- **Every beat names the source of its visual**, not just what is on screen: `[ON SCREEN: B-roll -
+  ...]`, `screen recording`, `graphic`, `on-screen text`, `generated image`. Nothing else holds the
+  frame. If one visual would sit through a whole long beat, split the beat or add a second visual.
+- **`ai-voice`: write for the engine.** No fillers, no stage directions it would read aloud, pauses
+  marked the way `## Voice settings` in `voice.md` says, and every word on its pronunciation list
+  spelled the way it needs to be said.
+- **The hook cannot lean on a face.** The first visual has to do the job a face does: show the
+  payoff, or the problem, in the first second.
+
+If the HyperFrames `faceless-explainer` skill is available here, it works scene by scene too -
+hand it the beats as they are. Never required.
+
 ## What to hand back
 
 - the two best hooks with their scored panels

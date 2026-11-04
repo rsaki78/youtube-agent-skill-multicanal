@@ -45,7 +45,9 @@ reject one without reading the whole transcript.
   replacement and run it through `../yt-script/hookscore.py`.
 - **On-screen text for the first two seconds**, different words from the spoken line.
 - **A loop point**: what the last line sets up so the first line answers it.
-- Vertical framing note - what gets cropped out of a 16:9 frame and whether that matters.
+- Vertical framing note. On camera: what gets cropped out of a 16:9 frame and whether that
+  matters. Faceless: graphics and on-screen text rarely survive a crop - say which scenes must be
+  rebuilt at 9:16 rather than cropped.
 
 ## The gate
 

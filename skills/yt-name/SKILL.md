@@ -27,7 +27,8 @@ python3 handle.py --file names.txt --suffix tv,hq,mx --check
    sounds like a reference channel sends your viewers to them. No sub-niche: run `/yt-niche` first,
    or get it in one line and mark it `unvalidated`.
 2. Ask the one thing the file does not say: **will the creator's own name or face be the brand?**
-   It decides whether a personal name is even on the table.
+   It decides whether a personal name is even on the table. A faceless `format:` usually answers
+   it - no personal name, unless the narrator is a persona with a name of their own.
 3. Never invent a number, a result or a source. Whether a name is taken is what `handle.py` and a
    search say, not what you remember.
 

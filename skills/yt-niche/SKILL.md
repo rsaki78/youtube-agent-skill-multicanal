@@ -44,7 +44,8 @@ Five questions, in one message, then wait:
    included.
 2. What do you know, do, or have access to that most people do not - job, trade, place, equipment,
    people?
-3. On camera, voice only, or faceless? And how many hours a week, honestly?
+3. On camera, their own voice without their face, a narrator, or an AI voice? And how many hours a
+   week, honestly?
 4. Who is it for - which language, which country or region?
 5. What is the channel for: ad revenue, selling something of your own, authority for a business, or
    because you want to make it?
@@ -62,7 +63,12 @@ At most five, written as **topic for a person**, never a single word. "Finance" 
 | **Room** | a new channel can get in | `room.py`, below. Never scored from memory. |
 | **Money** | it pays the way they need it to | Against answer 5. Look at what the top channels sell, who sponsors them, what is in their descriptions. |
 
-Answer 3 is a gate, not a score. A niche that needs forty hours a video for someone with five a week
+Answer 3 is also the channel's **format**, and every later skill reads it: write it into
+`## Niche` as `format: camera`, `voice`, `narrator` or `ai-voice`. Faceless - the last three -
+moves the work from the camera to the visuals, so count the hours for those, and judge Edge on
+what the channel can show, not on who is in front of it.
+
+The hours are a gate, not a score. A niche that needs forty hours a video for someone with five a week
 is out, however well it scores.
 
 ### Room - measured
@@ -124,6 +130,7 @@ winner. Not a plan. A proof that the channel has a first month.
 Into `## Niche` and `## Sub-niche` of `channel.md`, each ending `status: locked` once the user agrees:
 
 - The one-line statement - topic for a person.
+- The `format:` line.
 - The viewer, in a sentence.
 - The scores table and the room verdict, **with the date the data was collected**.
 - What was ruled out and why, so nobody relitigates it in three weeks.

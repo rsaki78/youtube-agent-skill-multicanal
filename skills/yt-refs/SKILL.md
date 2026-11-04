@@ -64,7 +64,9 @@ still be aspirational; it cannot be a peer.
 
 Then the tiers. Size band is a start, not the answer - the role is a judgement:
 
-- A **peer** is small or mid, has an outlier in the last six months, and is alive.
+- A **peer** is small or mid, has an outlier in the last six months, is alive, and is made the
+  same way - the `format:` in `## Niche`. A faceless channel learns little about holding attention
+  from someone whose face does it for them.
 - **Aspirational** is big, and actually sets the format - not just big in the parent niche.
 - **Adjacent** is never decided by the numbers. Say why the viewer overlaps.
 

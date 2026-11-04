@@ -31,8 +31,11 @@ exists it draws placeholders from the name and the palette, so the layout is jud
 1. Read `.claude/youtube/channel.md` in the current project; never `~/.claude/youtube/`. This needs
    `## Name and handle`. It reads the visual conventions in `## Reference channels` - what the
    niche looks like - and the thumbnail rules in `.claude/youtube/style.md`.
-2. Ask: **is the creator's face the brand?** If yes, the profile picture is a photo, not a logo -
-   tight crop, plain background in a brand colour. A logo beats a face only when nobody is on camera.
+2. Read `format:` in `## Niche`. With `camera`, ask: **is the creator's face the brand?** If yes,
+   the profile picture is a photo, not a logo - tight crop, plain background in a brand colour.
+   Faceless, there is no face to recognise, so the logo and the thumbnail style carry the whole
+   identity: the logo has to be a mark people learn, and `style.md` needs a thumbnail signature
+   that repeats - a colour, a layout, a character - so a viewer knows the channel before the title.
 3. Never invent a number, a result or a source. YouTube's sizes are in the header of `brandkit.py`,
    from YouTube's own help page. Use those, not remembered ones.
 

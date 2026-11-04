@@ -28,6 +28,15 @@ track YouTube generates on an unlisted upload all work. Do not guess at timings.
 - **REPEAT** - a sentence restarted. Compared against the last cue that was actually speech, not
   the literal previous cue, because most retakes have an "um" between the two attempts.
 
+## Faceless
+
+Read `format:` in `.claude/youtube/channel.md` if it exists. With `ai-voice` there are no retakes
+and no ums: FILLER and REPEAT should come back empty, and if they do not, the problem is in the
+script, not the edit - send it back to `/yt-script`. DEAD is the one that matters: the gaps
+between generated blocks. Some of those are scene breaths on purpose; raise `--floor` until the
+report stops cutting them, and say what floor you used. `voice` and `narrator` are recorded
+speech - edit them like any other take.
+
 ## What it will not do
 
 It does not touch media. It has no opinion about your B-roll. A 40% cut on the report is a 40% cut

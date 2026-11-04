@@ -7,11 +7,16 @@ reads the ones before it, so a section left `pending` is where the next run pick
 A status is `pending`, `unvalidated` (brought by the user, not checked), `review` (something it
 depends on changed) or `locked`. `/yt-launch` reads them to know where you are.
 
+`format:` under `## Niche` is how the channel is made - `camera`, `voice` (their own voice, no
+face), `narrator` (someone else's voice) or `ai-voice`. Every skill that writes words or picks
+visuals reads it.
+
 Do not edit a `locked` section by hand and expect the others to follow - re-run the skill that owns
 it, so whatever depends on it gets flagged.
 
 ## Niche
 status: pending   <!-- owner: /yt-niche -->
+format: pending   <!-- camera | voice | narrator | ai-voice -->
 
 ## Sub-niche
 status: pending   <!-- owner: /yt-niche -->

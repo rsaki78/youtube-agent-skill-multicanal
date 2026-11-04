@@ -46,9 +46,23 @@ python3 voiceprint.py voicetest.srt --against draft.txt      # does a script sou
 4. **Their writing** - messages, posts. Last resort, and say so in the file: it measures how they
    write, which is not how they talk.
 
-**A narrator or AI voice instead of the creator?** Then the voice is designed, not discovered.
-Write it as a character - who they are, how they address the viewer, what they never say - drawn
-from the viewer and the references. Run `voiceprint.py` on the first narrated sample anyway.
+### Faceless
+
+Read `format:` in `## Niche`. `voice` - their own voice, no face - is the flow above: it is still
+their voice, so measure it. `narrator` and `ai-voice` are different: the voice is designed, not
+discovered.
+
+- **The character.** Write it like a casting brief: who they are, the energy, the address (tú,
+  usted, vos), the pace, what they never say. Drawn from the viewer and the references, never
+  from a generic "friendly narrator".
+- **`ai-voice`: the settings, in `voice.md` under `## Voice settings`.** The provider, the voice
+  and model, the speed and whatever else that provider exposes, how it marks a pause, and a
+  pronunciation list: the channel name, the niche's terms, anglicisms, how numbers and currency
+  are read. Take the setting names from the user or the provider's own docs - never from memory.
+- **`narrator`:** the casting brief, plus a one-minute audition script with the hard words in it.
+- **Then measure the first real narration** - two minutes, generated or recorded from a script -
+  with `voiceprint.py` on its timed transcript. The words are the script's, so what it tells you is
+  the pace; that sets how long the script's lines can be.
 
 ### Measure
 
@@ -79,7 +93,9 @@ source, and the date. Paste the best two minutes of transcript into "How I actua
 Write `.claude/youtube/style.md` with these sections:
 
 - **Format.** Long-form length range, Shorts or not and how many per long video, the shape of an
-  episode (cold open, intro or none, sign-off), on camera or not, the setup they actually own. Take
+  episode (cold open, intro or none, sign-off), the `format:` from `channel.md`, the setup they actually own. Faceless: what carries the
+  screen - stock or own B-roll, screen recordings, graphics, generated images, animation - and the
+  tools they have for it. Take
   it from the peers in `## Reference channels`, sized to the hours from `/yt-niche`.
 - **Cadence.** Uploads a week that fit those hours - fewer than they want. One fixed day, marked
   provisional until their own analytics pick a better one. Consistency beats frequency.
