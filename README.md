@@ -155,6 +155,10 @@ logins and any answer would be a guess.
 **It does not make your logo.** `/yt-brand` writes the prompts and checks what comes back; the image
 generator is yours to choose.
 
+**Nobody can see why an AI answer cites a video.** `/yt-seo` makes the text around a search video
+say its answer plainly - captions, title, chapters, description, pinned comment - because that is
+what those answers read. It is a working rule, not a measured one, and the skill says so.
+
 **Tags barely matter** and this pack says so instead of selling you a tag generator.
 
 **Nothing invents a number.** If a skill wants a figure it does not have, it asks you for it or

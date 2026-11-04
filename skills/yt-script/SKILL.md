@@ -46,7 +46,9 @@ click the title promised, open a question the viewer cannot close, and prove the
 3. **The body.** One idea per beat. Mark each beat with what is ON SCREEN, not just what is said -
    a talking head with nothing to look at is a podcast.
 4. **The payoff.** Deliver the thing the hook promised, explicitly, and say that you are delivering
-   it: "that is the prompt, it is in the description".
+   it: "that is the prompt, it is in the description". Say the answer once as a complete sentence
+   that still makes sense quoted on its own, and say the names that matter - the tool, the place,
+   the term - out loud, not only on screen. Captions, search and AI answers only get what was said.
 5. **The close.** One ask. Not three.
 6. **Say it in their voice.** Save the script as plain text and run
    `../yt-voice/voiceprint.py <their transcripts> --against script.txt`. Fix the address first if it

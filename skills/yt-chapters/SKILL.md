@@ -38,6 +38,10 @@ vocabulary shifts across them. The titles it emits are the topic words, and they
 chapter called "Thumbnails Titles Packaging" is a placeholder. Rewrite each one as the promise of
 that section, in the user's voice, three to five words.
 
+**Search videos** are the exception to the five words: a chapter can be the sub-question it
+answers - "How much to set aside for taxes?" - because that is the label search and AI answers
+lift out of the video. Feed videos keep the promise form.
+
 Chapters are also a retention diagnostic: if a section cannot be named in five words, it is two
 sections or it is filler.
 

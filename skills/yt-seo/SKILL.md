@@ -46,6 +46,34 @@ Before handing anything over, write the three search queries this video should w
 title and first two description lines contain the words in those queries. If they do not, the
 problem is the title, not the description.
 
+## When an AI answer cites the video
+
+Only for search videos - the evergreen how-to, the question somebody types. ChatGPT, Gemini and
+Google's AI answers do not watch the video; they read the text around it: the captions, the
+title, the chapters, the description, the pinned comment. So the work is making that text say the
+answer plainly. This is a working rule, not a measured one - nobody, this pack included, can see
+why an answer cited one video over another. Never promise the user it will happen.
+
+- **Correct the captions.** Auto-captions misspell names and break sentences, and they are the
+  transcript the models read. Get them - Studio's Subtitles page, or
+  `yt-dlp --write-auto-subs --skip-download --sub-langs es <url>` - check every name against the
+  pronunciation list in `voice.md` and the names in the script, and upload the corrected file.
+- **The title states the task or the question**, in the words of the first query from the query
+  test. For a feed video, `/yt-package` wins and this line does not apply.
+- **The long version of the description** opens with the answer in two sentences, then the topics
+  as a short list, then the resources.
+- **Chapters named as the sub-questions** they answer - the search variant in `/yt-chapters`.
+- **A pinned comment from the channel** with the answer as numbered steps and the links. Draft it
+  for the user to post; on a how-to, it is the comment `/yt-comment` should pin.
+- **Look, if they want to.** Ask ChatGPT, Gemini and Google the three queries from the query test
+  and note who is cited, with the date. Answers change from one day to the next: it is an
+  observation, not a metric.
+
+Adapted from `skills/ai-seo/references/youtube-ai-citations.md` in Corey Haines'
+[marketingskills](https://github.com/coreyhaines31/marketingskills) (MIT), which credits the pattern
+to Ross Simmonds / Foundation Inc., "The Anatomy of a YouTube Video AI Cites" (2026). The ideas,
+not the figures: its numbers came without sources and are left out.
+
 ## The gate
 
 Nothing here publishes. This skill writes and you publish. Every output ends in a block the user
