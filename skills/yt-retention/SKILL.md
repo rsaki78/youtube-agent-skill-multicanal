@@ -30,6 +30,15 @@ the download icon -> "Audience retention".
 - **SLIDE** - the steady bleed across the middle. A flat slide is pacing. The fix is cutting, not
   rewriting.
 
+## Against the channel's own numbers
+
+Read `.claude/youtube/style.md` in the current project if it exists - never `~/.claude/youtube/`.
+Once the channel has ten videos, its `## Numbers` section holds the channel's own baseline:
+retention at 30 seconds, average percentage viewed. Judge the video against that first and the
+rules of thumb above second, and say which one you are using. Losing 30% in the first 30 seconds
+on a channel that usually loses 40% is a good hook for that channel, whatever the rule of thumb says. No baseline yet: say so, use the rules of
+thumb, and never invent a benchmark.
+
 ## What to hand back
 
 Name the single biggest leak and one change for it. Not a list of five. Then, only if asked, the

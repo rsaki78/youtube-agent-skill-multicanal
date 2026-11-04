@@ -18,6 +18,20 @@ median**, which is the only version of the question that is about the video.
 python3 swipe.py collected.json --min 2.0
 ```
 
+## Before you collect
+
+Read `.claude/youtube/channel.md` in the current project if it exists - never `~/.claude/youtube/`.
+`## Reference channels` is the starting list, and `## Sub-niche` is the filter: a 10x video
+outside the sub-niche is a curiosity, not a lead. If `/yt-refs` already collected them, the data
+is in `.claude/youtube/research/refs/` and goes straight in:
+
+```bash
+python3 ../yt-refs/refs.py .claude/youtube/research/refs/ --rows > collected.json
+```
+
+Check the date it was collected first; over three months old, collect it again. Read `voice.md`
+too, for the last line of the hand-back.
+
 ## Collecting the input
 
 You need at least **four videos per channel** or a median means nothing, and the tool will skip the

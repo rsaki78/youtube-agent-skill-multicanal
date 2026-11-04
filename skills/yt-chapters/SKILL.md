@@ -13,6 +13,13 @@ description: >-
 python3 chapters.py transcript.srt --target 8
 ```
 
+## Before you write
+
+Read `.claude/youtube/voice.md` in the current project if it exists - never
+`~/.claude/youtube/`. Chapter titles are short, but they are still the channel talking: the same
+address (tú, usted, vos), none of the banned words. No `voice.md` is not a reason to stop - write
+the titles plainly and mention `/yt-voice`. Never invent a number for a title.
+
 ## The rules, which are not optional
 
 A chapter list that breaks any of these silently does not become chapters at all - the block just

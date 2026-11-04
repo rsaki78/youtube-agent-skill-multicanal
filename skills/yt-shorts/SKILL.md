@@ -12,6 +12,22 @@ description: >-
 A Short cut out of a long video is not a clip of the best moment. It is a moment that **survives
 without the video around it**, which is a much smaller set.
 
+## Before you write
+
+1. Read `.claude/youtube/voice.md` in the current project if it exists. Each channel lives in its
+   own project folder with its own profile, so never read or write `~/.claude/youtube/voice.md`.
+   That is the user's voice profile: how they talk on camera, the words they never use, who they
+   are talking to, what they will not claim. If it does not exist, or is still the blank
+   template, run `/yt-voice`: it builds the file from the user's own videos or, for a channel with
+   none yet, from a recorded voice test. Read `.claude/youtube/style.md` too if it exists - the
+   format, cadence and packaging rules for this channel. A script in the wrong voice is worse than no script, because they have to
+   read it out loud.
+2. Never invent a number, a result or a source. If a figure would strengthen it and you do not have
+   one, ask for it or write the line without it.
+3. Every new first line and every piece of on-screen text uses the address in `voice.md` (tú,
+   usted, vos) and none of its banned words. Time each Short at the pace in its `## Measured`
+   section, or 150 words a minute without one.
+
 ## Picking
 
 Read the transcript and find spans of 20-55 seconds where all three are true:
