@@ -28,8 +28,8 @@ one heroic afternoon.
 | 5 | Brand | `/yt-brand` | `brand/`, `## Brand` | logo and banner are uploaded |
 | 6 | Description and setup | `/yt-about` | `## About` | the description is in Studio |
 
-Step 1 also records the channel's `format:` - on camera, or one of three faceless ways - and every
-later step reads it.
+Step 1 also records the channel's `format:` - on camera, or one of three faceless ways - and its
+`language:` with the region, and every later step reads both.
 
 Everything lives in `.claude/youtube/` inside the channel's project folder - never in
 `~/.claude/youtube/`. `channel.md` is the memory: each section carries a status.

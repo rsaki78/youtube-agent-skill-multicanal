@@ -63,6 +63,9 @@ At most five, written as **topic for a person**, never a single word. "Finance" 
 | **Room** | a new channel can get in | `room.py`, below. Never scored from memory. |
 | **Money** | it pays the way they need it to | Against answer 5. Look at what the top channels sell, who sponsors them, what is in their descriptions. |
 
+Answer 4 is the channel's **language**: write it into `## Niche` as `language:` with the region -
+`es-MX`, `es-ES`, `en-US`. One language per channel; a channel in two is two channels.
+
 Answer 3 is also the channel's **format**, and every later skill reads it: write it into
 `## Niche` as `format: camera`, `voice`, `narrator` or `ai-voice`. Faceless - the last three -
 moves the work from the camera to the visuals, so count the hours for those, and judge Edge on
@@ -130,7 +133,7 @@ winner. Not a plan. A proof that the channel has a first month.
 Into `## Niche` and `## Sub-niche` of `channel.md`, each ending `status: locked` once the user agrees:
 
 - The one-line statement - topic for a person.
-- The `format:` line.
+- The `format:` and `language:` lines.
 - The viewer, in a sentence.
 - The scores table and the room verdict, **with the date the data was collected**.
 - What was ruled out and why, so nobody relitigates it in three weeks.

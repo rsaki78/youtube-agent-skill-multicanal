@@ -29,7 +29,8 @@ is in `.claude/youtube/research/refs/` and goes straight in:
 python3 ../yt-refs/refs.py .claude/youtube/research/refs/ --rows > collected.json
 ```
 
-Check the date it was collected first; over three months old, collect it again. Read `voice.md`
+Pass `language:` from `## Niche` to `swipe.py` as `--lang`, so the formulas are matched in the
+language the titles are in. Check the date it was collected first; over three months old, collect it again. Read `voice.md`
 too, for the last line of the hand-back.
 
 ## Collecting the input

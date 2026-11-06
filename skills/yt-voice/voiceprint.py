@@ -23,12 +23,10 @@ What it measures:
 the draft that the speaker never used.
 """
 import collections, json, os, re, statistics, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lang import STOP, FILLERS, fold  # noqa: E402  (one word list for the whole pack)
 
 TIME = re.compile(r"(\d+):(\d{2}):(\d{2})[,.](\d{3})\s*-->\s*(\d+):(\d{2}):(\d{2})[,.](\d{3})")
-STOP = {"es": set("de la que el en y a los se del las un por con no una su para es al lo como mas pero sus le ya o este si porque esta entre cuando muy sin sobre tambien me hasta hay donde quien desde todo nos durante todos uno les ni contra otros ese eso ante ellos e esto mi antes algunos que unos yo otro otras otra el tanto esa estos mucho quienes nada muchos cual poco ella estar estas algunas algo nosotros mis tu te ti tus ellas nosotras vosotros os mio mia tuyo suyo es son fue era ser va voy van hacer tiene tengo".split()),
-        "en": set("the a an and or but of to in on at for with is are was were be been it this that these those i you he she we they me my your our their as by from so if not no do does did have has had just then than there here what which who about into out up".split())}
-FILLERS = {"es": ["o sea", "este", "eh", "em", "bueno", "pues", "como que", "digamos", "basicamente", "literalmente", "tipo", "verdad?", "no?", "vale"],
-           "en": ["um", "uh", "like", "you know", "basically", "actually", "literally", "kind of", "sort of", "i mean", "right?"]}
 ADDRESS = {"tu": r"\b(tú|tienes|puedes|quieres|sabes|eres|estás|haces|necesitas|contigo)\b",
            "usted": r"\b(usted|ustedes)\b",
            "vos": r"\b(vos|tenés|podés|querés|sabés|sos|hacés|necesitás)\b",
@@ -52,6 +50,7 @@ def read(path):
     return " ".join(text), secs
 
 def lang(words):
+    words = [fold(w) for w in words]
     es = sum(w in STOP["es"] for w in words); en = sum(w in STOP["en"] for w in words)
     return "es" if es >= en else "en"
 
@@ -82,7 +81,7 @@ def profile(text, secs=None):
         p["questions_share"] = round(sum(s.strip().endswith("?") for s in sents) / len(sents), 2)
     else:
         p["sentence_median"] = None
-    fill = {f: count(r"(?<!\w)" + re.escape(f) + ("" if f.endswith("?") else r"(?!\w)"), low) for f in FILLERS[lg]}
+    fill = {f: count(r"(?<!\w)" + re.escape(f) + ("" if f.endswith("?") else r"(?!\w)"), fold(low)) for f in FILLERS[lg]}
     p["fillers_per_100"] = round(100 * sum(fill.values()) / len(words), 1)
     p["fillers"] = {k: v for k, v in sorted(fill.items(), key=lambda x: -x[1]) if v}
     if lg == "es":
@@ -95,7 +94,7 @@ def profile(text, secs=None):
     for n in (2, 3, 4):
         for i in range(len(words) - n + 1):
             g = words[i:i + n]
-            if all(w in STOP[lg] for w in g): continue
+            if all(fold(w) in STOP[lg] for w in g): continue
             grams[" ".join(g)] += 1
     p["phrases"] = dedupe([(g, c) for g, c in grams.items() if c >= 3 and g not in FILLERS[lg]])[:15]
     p["grams"] = grams

@@ -30,7 +30,8 @@ track YouTube generates on an unlisted upload all work. Do not guess at timings.
 
 ## Faceless
 
-Read `format:` in `.claude/youtube/channel.md` if it exists. With `ai-voice` there are no retakes
+Read `format:` and `language:` in `.claude/youtube/channel.md` if it exists; pass the language to
+`deadair.py` as `--lang` so it knows which fillers to look for. With `ai-voice` there are no retakes
 and no ums: FILLER and REPEAT should come back empty, and if they do not, the problem is in the
 script, not the edit - send it back to `/yt-script`. DEAD is the one that matters: the gaps
 between generated blocks. Some of those are scene breaths on purpose; raise `--floor` until the

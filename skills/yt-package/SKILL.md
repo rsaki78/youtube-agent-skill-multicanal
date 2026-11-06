@@ -29,6 +29,10 @@ python3 title.py titles.txt            # one per line, ranked
    none yet, from a recorded voice test. Read `.claude/youtube/style.md` too if it exists - the
    format, cadence and packaging rules for this channel. A script in the wrong voice is worse than no script, because they have to
    read it out loud.
+   Read `language:` under `## Niche` in `.claude/youtube/channel.md` too: everything this writes
+   is in that language and region. No `language:` line - a channel set up before it existed -
+   take it from `voice.md` or the channel's own videos, confirm it with the user once, and write
+   it in.
 2. Never invent a number, a result or a source. If a figure would strengthen it and you do not have
    one, ask for it or write the line without it.
 

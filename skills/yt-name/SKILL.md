@@ -57,7 +57,7 @@ Draft fifteen to twenty, then cut. Every survivor passes all of these:
 - **Nobody already there.** Search it - `yt-dlp "ytsearch10:<name>" --flat-playlist -J` - and look
   at what comes back. A dead channel with the same name still owns the search.
 - **Distinct from the references.** Not one word off any channel in `## Reference channels`.
-- **Means the same everywhere it lands.** The target market's language first, then the other
+- **Means the same everywhere it lands.** The `language:` in `## Niche` first, then the other
   regions that share it. Slang differs from one country to the next; say what you checked and
   say when you are not sure.
 - **Not someone's brand.** Flag anything that is obviously a company or product. You cannot clear

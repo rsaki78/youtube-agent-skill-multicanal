@@ -26,7 +26,7 @@ python3 about.py a.txt b.txt --keywords "..." --voice .claude/youtube/voice.md  
 1. Read `.claude/youtube/channel.md`, `voice.md` and `style.md` in the current project; never
    `~/.claude/youtube/`. The description is the sub-niche's one-line statement, the viewer, the
    pillars and the cadence, said in the creator's voice - it should invent nothing those files do
-   not already hold. Anything missing, ask; or run the skill that owns it.
+   not already hold, in the `language:` from `## Niche`. Anything missing, ask; or run the skill that owns it.
 2. Never invent a number, a result or a source. No subscriber counts, years of experience,
    clients or results that the user has not given you - and nothing `voice.md` says they will not
    claim.

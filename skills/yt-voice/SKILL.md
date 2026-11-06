@@ -25,7 +25,8 @@ python3 voiceprint.py voicetest.srt --against draft.txt      # does a script sou
 
 1. Read `.claude/youtube/channel.md` in the current project; never `~/.claude/youtube/`. Use the
    viewer from `## Sub-niche`, the take/leave lines from `## Reference channels`, and the tone of
-   the name from `## Name and handle`. Missing sections are not a blocker for the voice - they are
+   the name from `## Name and handle`. Both files are written in the `language:` from `## Niche`,
+   and `voiceprint.py` should report that same language - if it does not, ask. Missing sections are not a blocker for the voice - they are
    for the style.
 2. If `.claude/youtube/voice.md` exists and is filled in - not the blank template - ask whether to
    rebuild it or only measure against it. Never overwrite it silently.

@@ -11,12 +11,16 @@ depends on changed) or `locked`. `/yt-launch` reads them to know where you are.
 face), `narrator` (someone else's voice) or `ai-voice`. Every skill that writes words or picks
 visuals reads it.
 
+`language:` is the language and region the channel speaks - `es-MX`, `es-ES`, `en-US`. Everything
+the pack writes is in it, and the tools take it as `--lang`.
+
 Do not edit a `locked` section by hand and expect the others to follow - re-run the skill that owns
 it, so whatever depends on it gets flagged.
 
 ## Niche
 status: pending   <!-- owner: /yt-niche -->
 format: pending   <!-- camera | voice | narrator | ai-voice -->
+language: pending   <!-- es-MX, es-ES, en-US... -->
 
 ## Sub-niche
 status: pending   <!-- owner: /yt-niche -->
