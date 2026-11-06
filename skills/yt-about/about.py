@@ -22,7 +22,7 @@ import json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "yt-voice"))
-from voiceprint import ADDRESS, STOP, lang
+from voiceprint import ADDRESS, STOP, fold, lang
 
 LIMIT = 1000
 URL = re.compile(r"(https?://\S+|www\.\S+|\b\S+\.(com|net|org|io|tv|co|mx|es|ar|cl|pe|app|me|ly)\b\S*)", re.I)
@@ -58,7 +58,7 @@ def lint(text, keywords=(), voice=None):
         elif pos > len(first): r["warnings"].append(f'"{k}" first appears at character {pos}, after the first line')
     counts = {}
     for w in words:
-        if len(w) > 3 and w not in STOP[lg]: counts[w] = counts.get(w, 0) + 1
+        if len(w) > 3 and fold(w) not in STOP[lg]: counts[w] = counts.get(w, 0) + 1
     stuffed = [f"{w} x{c}" for w, c in sorted(counts.items(), key=lambda x: -x[1]) if c >= 5]
     if stuffed: r["warnings"].append("repeated - reads as keyword stuffing: " + ", ".join(stuffed[:5]))
     urls = URL.findall(t)

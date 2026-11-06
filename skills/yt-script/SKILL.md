@@ -18,7 +18,13 @@ Two tools live in this folder and both actually run. Use them. Do not eyeball th
 ```bash
 python3 hookscore.py hooks.txt              # rank your hook options
 python3 hookscore.py --hook "one line"      # score a single one
+python3 hookscore.py hooks.txt --lang es-MX --address none --wpm 127
 ```
+
+Always pass `--lang` with the channel's `language:`, and `--wpm` with the pace in `voice.md` if it
+has one. `--address none` only when `voice.md` says the narrator never talks to the viewer - a
+third-person documentary voice. Then ADDRESS is shown but left out of the verdict, and never
+suggest adding "you" to a hook to raise the score.
 
 ## Before you write
 

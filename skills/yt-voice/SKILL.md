@@ -69,8 +69,10 @@ discovered.
 
 Run `voiceprint.py` on everything you have. Under 300 words it says not to trust it; get more.
 
-- **Address** goes on the first line of `voice.md`, in bold: tú, usted, vos or ustedes. A script in
-  the wrong one is unreadable on camera, and it is the mistake every generic script makes.
+- **Address** goes on the first line of `voice.md`, in bold: tú, usted, vos or ustedes - in
+  English, you - or **none** for a narrator who never speaks to the viewer (third-person
+  documentary). A script in the wrong one is unreadable on camera, and it is the mistake every
+  generic script makes. `none` is what makes `hookscore.py` run with `--address none`.
 - **Repeats** are the tics. Keep the ones that are theirs. Drop the ones that are just the topic.
 - **Fillers** are for the edit (`/yt-edit`) to cut. Never write them into a script.
 - **Sentence length** and **pace** set how long a script's lines can be.

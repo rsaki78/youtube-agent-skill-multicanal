@@ -3,6 +3,7 @@
 
     python3 swipe.py collected.json
     python3 swipe.py collected.json --min 2.0 --json
+    python3 swipe.py collected.json --lang es-MX       # the channel's language: from channel.md
 
 Input is a list you collected - one object per video:
 
@@ -14,29 +15,39 @@ is scored as a MULTIPLE OF ITS OWN CHANNEL'S MEDIAN, which needs at least four v
 to mean anything - the tool says so rather than quietly ranking on noise.
 
 The formula comes from skills/yt-script/hooks.json, matched against the TITLE. It is a judgement
-about the words on screen, not a claim about why the video worked.
+about the words on screen, not a claim about why the video worked. --lang picks which patterns;
+without it the language is guessed from all the titles together.
 """
 import json, os, re, statistics, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-FORMULAS = json.load(open(os.path.join(HERE, "..", "yt-script", "hooks.json")))["hooks"]
+sys.path.insert(0, os.path.join(HERE, "..", "yt-voice"))
+from lang import fold, pick, utf8_out  # noqa: E402
+FORMULAS = json.load(open(os.path.join(HERE, "..", "yt-script", "hooks.json"), encoding="utf-8"))["hooks"]
+L = "en"   # set from --lang in main()
 
 def classify(title):
     scored = []
+    key, t = ("match", title) if L == "en" else ("match_" + L, fold(title))
     for f in FORMULAS:
-        n = sum(1 for p in f["match"] if re.search(p, title, re.I))
+        n = sum(1 for p in f.get(key, []) if re.search(p, t, re.I))
         if n: scored.append((n, f["name"]))
     scored.sort(reverse=True)
     return scored[0][1] if scored else "Unclassified"
 
 def main():
+    global L
+    utf8_out()
     a = sys.argv[1:]
     as_json = "--json" in a; a = [x for x in a if x != "--json"]
+    lang_given = "--lang" in a
+    L, a = pick(a)
     lo = float(a[a.index("--min") + 1]) if "--min" in a else 1.5
     files = [x for x in a if not x.startswith("--") and not re.match(r"^[\d.]+$", x)]
     if not files or not os.path.exists(files[0]): print(__doc__); sys.exit(1)
-    rows = json.load(open(files[0]))
+    rows = json.load(open(files[0], encoding="utf-8-sig"))
     if isinstance(rows, dict): rows = rows.get("videos", [])
+    if not lang_given: L = pick([], " ".join(r.get("title", "") for r in rows))[0]
     by = {}
     for r in rows: by.setdefault(r.get("channel", "?"), []).append(r)
     out, thin = [], []
