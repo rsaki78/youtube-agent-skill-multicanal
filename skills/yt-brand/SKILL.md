@@ -21,6 +21,8 @@ python3 brandkit.py --name "Channel Name" --handle handle --palette "#0F172A,#F5
 python3 brandkit.py ... --logo logo.png --banner banner.png      # once they exist
 ```
 
+On Windows, if `python3` is not found, run the same line with `py` or `python`.
+
 It writes `preview.html` - the channel page at desktop, mobile and TV crops, the avatar from header
 size down to comment size on light and dark, the palette with its contrast - and
 `banner-template.svg` with the safe area drawn on a layer you hide before exporting. Before any image

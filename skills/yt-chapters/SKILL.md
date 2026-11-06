@@ -13,6 +13,8 @@ description: >-
 python3 chapters.py transcript.srt --target 8
 ```
 
+On Windows, if `python3` is not found, run the same line with `py` or `python`.
+
 ## Before you write
 
 Read `.claude/youtube/voice.md` in the current project if it exists - never

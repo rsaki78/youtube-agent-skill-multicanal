@@ -18,6 +18,8 @@ median**, which is the only version of the question that is about the video.
 python3 swipe.py collected.json --min 2.0
 ```
 
+On Windows, if `python3` is not found, run the same line with `py` or `python`.
+
 ## Before you collect
 
 Read `.claude/youtube/channel.md` in the current project if it exists - never `~/.claude/youtube/`.

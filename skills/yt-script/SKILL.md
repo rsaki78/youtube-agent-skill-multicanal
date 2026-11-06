@@ -21,6 +21,8 @@ python3 hookscore.py --hook "one line"      # score a single one
 python3 hookscore.py hooks.txt --lang es-MX --address none --wpm 127
 ```
 
+On Windows, if `python3` is not found, run the same line with `py` or `python`.
+
 Always pass `--lang` with the channel's `language:`, and `--wpm` with the pace in `voice.md` if it
 has one. `--address none` only when `voice.md` says the narrator never talks to the viewer - a
 third-person documentary voice. Then ADDRESS is shown but left out of the verdict, and never

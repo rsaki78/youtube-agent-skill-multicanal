@@ -17,6 +17,8 @@ python3 retention.py retention.csv --duration 600
 python3 retention.py retention.csv --transcript transcript.srt
 ```
 
+On Windows, if `python3` is not found, run the same line with `py` or `python`.
+
 Getting the file: Studio -> a video -> Analytics -> Engagement -> the audience-retention chart ->
 the download icon -> "Audience retention".
 
@@ -36,8 +38,11 @@ Read `.claude/youtube/style.md` in the current project if it exists - never `~/.
 Once the channel has ten videos, its `## Numbers` section holds the channel's own baseline:
 retention at 30 seconds, average percentage viewed. Judge the video against that first and the
 rules of thumb above second, and say which one you are using. Losing 30% in the first 30 seconds
-on a channel that usually loses 40% is a good hook for that channel, whatever the rule of thumb says. No baseline yet: say so, use the rules of
-thumb, and never invent a benchmark.
+on a channel that usually loses 40% is a good hook for that channel, whatever the rule of thumb says.
+
+Under ten videos there is no baseline yet, and a median of three is noise. Say so in the first
+line - "no channel baseline yet, N videos; judged against the rules of thumb" - compare with the
+channel's earlier videos only as a direction, never as a target, and never invent a benchmark.
 
 ## What to hand back
 

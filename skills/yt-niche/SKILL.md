@@ -24,6 +24,8 @@ not chosen, they have defaulted.
 python3 room.py .claude/youtube/research/niche/      # is there room, candidate by candidate
 ```
 
+On Windows, if `python3` is not found, run the same line with `py` or `python`.
+
 ## Before you start
 
 1. Read `.claude/youtube/channel.md` in the current project. If it does not exist, create it from

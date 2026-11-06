@@ -17,6 +17,8 @@ python3 deadair.py transcript.srt              # srt, vtt or whisper json
 python3 deadair.py transcript.srt --floor 0.35 --json
 ```
 
+On Windows, if `python3` is not found, run the same line with `py` or `python`.
+
 No transcript yet? Ask for one, or produce one first - `whisper`, `faster-whisper`, or the caption
 track YouTube generates on an unlisted upload all work. Do not guess at timings.
 

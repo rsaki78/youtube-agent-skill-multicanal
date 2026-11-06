@@ -21,6 +21,8 @@ python3 voiceprint.py voicetest.srt                          # how they actually
 python3 voiceprint.py voicetest.srt --against draft.txt      # does a script sound like them
 ```
 
+On Windows, if `python3` is not found, run the same line with `py` or `python`.
+
 ## Before you start
 
 1. Read `.claude/youtube/channel.md` in the current project; never `~/.claude/youtube/`. Use the

@@ -119,6 +119,11 @@ python3 skills/yt-brand/brandkit.py --name "..." --palette ... # logo, banner an
 python3 skills/yt-about/about.py description.txt               # channel description linter
 ```
 
+The tools that read words - hooks, titles, chapters, cuts, formulas - work in English and Spanish.
+The channel's `language:` in `channel.md` (`es-MX`, `en-US`...) is set at `/yt-niche` and passed
+to them as `--lang`; the word lists live in one place, [`skills/yt-voice/lang.py`](skills/yt-voice/lang.py),
+so another language is a list away.
+
 `room.py` and `refs.py` read what `yt-dlp` collects. yt-dlp is the one outside tool the from-zero
 research uses; the twelve tools themselves still need nothing but Python.
 
@@ -135,7 +140,8 @@ Anything that claims to run your channel unattended should be read with that dis
 real short-form hooks (the first 15 seconds of auto-captions, top-8 and bottom-8 by views across
 five channels). It separates deliberately bad hooks from real ones well. It separates a given
 creator's hits from their own misses barely at all. A low score is a reason to look again; a high
-score is not a promise.
+score is not a promise. The Spanish lists were written, not calibrated: no Spanish sample has been
+measured the same way yet.
 
 **The formula classifier is about the words, not the result.** When `/yt-viral` says a title used
 The Statistic, that is a judgement about the title you can see, not a claim about why the video got

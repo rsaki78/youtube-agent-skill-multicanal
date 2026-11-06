@@ -21,6 +21,8 @@ python3 about.py description.txt --keywords "word one,word two" --voice .claude/
 python3 about.py a.txt b.txt --keywords "..." --voice .claude/youtube/voice.md     # compare drafts
 ```
 
+On Windows, if `python3` is not found, run the same line with `py` or `python`.
+
 ## Before you start
 
 1. Read `.claude/youtube/channel.md`, `voice.md` and `style.md` in the current project; never

@@ -27,6 +27,8 @@ python3 refs.py .claude/youtube/research/refs/ --rows > refs-rows.json
 python3 ../yt-viral/swipe.py refs-rows.json --min 2.0
 ```
 
+On Windows, if `python3` is not found, run the same line with `py` or `python`.
+
 ## Before you start
 
 1. Read `.claude/youtube/channel.md` in the current project. Each channel lives in its own project

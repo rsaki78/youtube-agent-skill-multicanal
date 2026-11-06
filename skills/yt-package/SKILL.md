@@ -19,6 +19,8 @@ python3 title.py --title "..." --thumb "AI RAN IT"
 python3 title.py titles.txt            # one per line, ranked
 ```
 
+On Windows, if `python3` is not found, run the same line with `py` or `python`.
+
 ## Before you write
 
 1. Read `.claude/youtube/voice.md` in the current project if it exists. Each channel lives in its

@@ -19,6 +19,8 @@ python3 handle.py "Name One" "Name Two" --check        # handles, linted, and wh
 python3 handle.py --file names.txt --suffix tv,hq,mx --check
 ```
 
+On Windows, if `python3` is not found, run the same line with `py` or `python`.
+
 ## Before you start
 
 1. Read `.claude/youtube/channel.md` in the current project; never `~/.claude/youtube/`. This needs
