@@ -2,8 +2,8 @@
 
 Optional. Only for a channel whose videos come out of a production pipeline - n8n, Make, a script of
 your own - rather than being written in the chat. Lives at `.claude/youtube/pipeline.md`, next to
-`voice.md`. `/yt-review` and `/yt-ship` read it to know where things are; without it they ask, and
-work on whatever you paste.
+`voice.md`. `/yt-review` and `/yt-ship` read it to know where things are. Without it they offer to
+write it with you - a few questions, once - or work on whatever you paste.
 
 Write what is true of this channel's pipeline. Nothing in the skills assumes a particular tool.
 

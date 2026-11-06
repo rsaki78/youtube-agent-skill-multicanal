@@ -23,12 +23,23 @@ their rules; it follows them. It does not upload anything.
 1. Read `.claude/youtube/channel.md`, `voice.md` and `style.md` in the current project; never
    `~/.claude/youtube/`. `language:` goes to every tool as `--lang`.
 2. Read `.claude/youtube/pipeline.md` if it exists: the video folder, the subtitles, the audio,
-   the sources file, where the output goes, what has to be updated after publishing. No
-   `pipeline.md`: ask for the subtitles and the sources.
+   the sources file, where the output goes, what has to be updated after publishing.
+   No `pipeline.md`: offer once to create it - see **Setting up pipeline.md** below. If they say
+   no, ask for the subtitles and the sources, or work on what is pasted,
+   and do not offer again this session.
 3. Find the video by its code and check the folder has what this needs - at least the subtitles.
    Say what is missing rather than working around it.
 4. Never invent a number, a result or a source. The description says nothing the sources file and
    the video do not.
+
+## Setting up pipeline.md
+
+Start from `../yt-launch/templates/pipeline.md`. Fill in what the project already shows - the
+video folders and how they are named, the script's markers read off a real script, the sources
+file, the subtitle and audio files in an edited video's folder - and ask the rest in one message:
+where the script lives and whether Claude can write to it, where the output goes, what has to be
+updated after publishing. Show the file and write it to `.claude/youtube/pipeline.md` only when
+they agree. Never guess a path that is not in the project; leave it empty and say so.
 
 ## The steps
 

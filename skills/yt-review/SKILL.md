@@ -25,10 +25,22 @@ it follows them.
    anything `voice.md` says the channel will not claim. Read `.claude/youtube/plan.md` too if it
    exists - the video's slot in the plan.
 2. Read `.claude/youtube/pipeline.md` if it exists: where the script is, its format, the sources
-   file. No `pipeline.md`: ask for the script and the sources, or work on what is pasted.
+   file.
+   No `pipeline.md`: offer once to create it - see **Setting up pipeline.md** below. If they say
+   no, ask for the script and the sources, or work on what is pasted,
+   and do not offer again this session.
 3. Find the video by its code. Read the script and its sources file whole.
 4. Never invent a number, a result or a source. **A fact that is not in the sources file does not
    go in** - not in the title, not in the hook, not in the thumbnail.
+
+## Setting up pipeline.md
+
+Start from `../yt-launch/templates/pipeline.md`. Fill in what the project already shows - the
+video folders and how they are named, the script's markers read off a real script, the sources
+file, the subtitle and audio files in an edited video's folder - and ask the rest in one message:
+where the script lives and whether Claude can write to it, where the output goes, what has to be
+updated after publishing. Show the file and write it to `.claude/youtube/pipeline.md` only when
+they agree. Never guess a path that is not in the project; leave it empty and say so.
 
 ## The review
 
