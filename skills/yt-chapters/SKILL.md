@@ -11,9 +11,19 @@ description: >-
 
 ```bash
 python3 chapters.py transcript.srt --target 8
+python3 timeline.py audio/ --style .claude/youtube/style.md --json > scenes.json
+python3 chapters.py transcript.srt --scenes scenes.json
 ```
 
 On Windows, if `python3` is not found, run the same line with `py` or `python`.
+
+## Videos built scene by scene
+
+If `.claude/youtube/style.md` has a `## Timeline` section - the silence before the first scene,
+the gap between scenes, the frame rate - and the video's folder has one audio file per scene,
+run `timeline.py` first and pass its output as `--scenes`. Chapters then start only where a scene
+starts. Subtitles the pipeline already made in the final video's time are used as they are; do
+not shift them. No `## Timeline`: skip this, the pauses do the job.
 
 ## Before you write
 

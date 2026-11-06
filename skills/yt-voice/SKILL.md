@@ -110,6 +110,9 @@ Write `.claude/youtube/style.md` with these sections:
   the words banned by `voice.md`, and thumbnail rules: face or not, and the word limit as a line `Thumbnail words: 3` - the
   creator's number, which `/yt-package` passes to `title.py`. Colours and type
   stay `pending /yt-brand`.
+- **Timeline**, only for a video assembled scene by scene from one audio file each: a `## Timeline`
+  section with `start_silence:`, `scene_gap:` and `fps:`, measured once from a real video. It is
+  what `timeline.py` in `/yt-chapters` reads.
 - **Numbers.** No invented benchmarks - no "a good CTR is". For the first ten videos the only target
   is shipping them on the cadence. After ten, the baseline is the channel's OWN median: views,
   click-through rate, average percentage viewed, retention at 30 seconds. Every video after that is

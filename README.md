@@ -57,7 +57,7 @@ in [`skills/yt-launch/templates/`](skills/yt-launch/templates/).
 
 The tools are run as `python3`. On Windows, if that command does not exist, use `py` or `python`.
 
-No Claude Code at all? Paste any single `SKILL.md` at the top of a chat and it runs as a mode. You lose the twelve
+No Claude Code at all? Paste any single `SKILL.md` at the top of a chat and it runs as a mode. You lose the thirteen
 Python tools, which is most of the point of `/yt-script`, `/yt-retention` and `/yt-edit`, but the
 rest works.
 
@@ -112,7 +112,7 @@ they work on what you paste.
 | `/yt-review` | Before production: title, thumbnail and hook against a finished script, every fact checked against the sources. Changes nothing else. |
 | `/yt-ship` | After the edit: chapters, description, tags and Shorts in one file in the video's folder. |
 
-## The twelve tools
+## The thirteen tools
 
 Every one of these runs on a clean Python 3 with no dependencies. They are the reason the skills are
 not just prompts.
@@ -122,6 +122,7 @@ python3 skills/yt-script/hookscore.py --hook "one line"        # 5-property hook
 python3 skills/yt-package/title.py --title "..." --thumb "..." # title + thumbnail linter
 python3 skills/yt-edit/deadair.py transcript.srt               # edit decision list
 python3 skills/yt-chapters/chapters.py transcript.srt          # validated chapters
+python3 skills/yt-chapters/timeline.py audio/ --style style.md # scene starts from per-scene audio
 python3 skills/yt-retention/retention.py retention.csv         # where they left, and why
 python3 skills/yt-viral/swipe.py collected.json --min 2.0      # outliers by own-channel multiple
 python3 skills/yt-niche/room.py research/niche/                # is there room, niche by niche
@@ -138,7 +139,7 @@ to them as `--lang`; the word lists live in one place, [`skills/yt-voice/lang.py
 so another language is a list away.
 
 `room.py` and `refs.py` read what `yt-dlp` collects. yt-dlp is the one outside tool the from-zero
-research uses; the twelve tools themselves still need nothing but Python.
+research uses; the thirteen tools themselves still need nothing but Python.
 
 ## The fine print
 
