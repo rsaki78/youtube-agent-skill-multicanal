@@ -95,7 +95,7 @@ def style_timeline(path):
     t = open(path, encoding="utf-8").read()
     m = re.search(r"^## Timeline\s*\n(.*?)(?=^## |\Z)", t, re.S | re.M)
     if not m: return {}
-    return {k: float(v) for k, v in re.findall(r"^\s*(\w+)\s*:\s*([\d.]+)", m.group(1), re.M)}
+    return {k: float(v) for k, v in re.findall(r"^\s*(?:[-*]\s*)?(\w+)\s*:\s*([\d.]+)", m.group(1), re.M)}
 
 def natural(name): return [int(x) if x.isdigit() else x.lower() for x in re.split(r"(\d+)", name)]
 
