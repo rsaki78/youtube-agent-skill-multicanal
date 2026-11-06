@@ -1,7 +1,8 @@
 # The YouTube agent skill
 
-Eighteen Claude skills for a YouTube channel: seven that take it from nothing to ready for its first
-upload, eleven that run it once it exists. Free, MIT, no signup, no API key, nothing to connect.
+Twenty Claude skills for a YouTube channel: seven that take it from nothing to ready for its first
+upload, eleven that run it once it exists, and two for channels whose videos come out of a
+production pipeline. Free, MIT, no signup, no API key, nothing to connect.
 
 One of them writes your script off 21 hook formulas and scores the hook before you waste a take on
 it. One lints the title and the thumbnail as a single pairing, because writing them separately is
@@ -98,6 +99,18 @@ Spanish, is [`docs/empezar-desde-cero.md`](docs/empezar-desde-cero.md).
 | `/yt-seo` | The description, the tags that are worth having, and the three queries this should win. |
 | `/yt-chapters` | Chapters from a transcript, validated against YouTube's own rules so they render. |
 | `/yt-audit` | The whole channel, ending in ONE fix rather than twenty. |
+
+## With a pipeline
+
+For a channel whose scripts and audio come out of n8n, Make or a script of your own. Optional: they
+read `.claude/youtube/pipeline.md` - where the script lives, its format, the sources file, what
+to update after publishing ([template](skills/yt-launch/templates/pipeline.md)) - and without it
+they work on what you paste.
+
+| command | what it does |
+| --- | --- |
+| `/yt-review` | Before production: title, thumbnail and hook against a finished script, every fact checked against the sources. Changes nothing else. |
+| `/yt-ship` | After the edit: chapters, description, tags and Shorts in one file in the video's folder. |
 
 ## The twelve tools
 
