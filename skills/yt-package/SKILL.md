@@ -42,15 +42,18 @@ python3 title.py titles.txt            # one per line, ranked
   reported because they fail differently: a desktop cut loses the tail, a mobile cut can lose the
   subject.
 - **The thumbnail must not repeat the title.** Different words, same promise.
-- **Three words maximum on the thumbnail.** At feed size a fourth word is a grey smear.
-- **A number, a name or a date** beats every adjective available to you.
+- **Few words on the thumbnail.** The limit is the channel's: `Thumbnail words:` in `style.md`'s
+  packaging rules, passed to `title.py` as `--thumb-max`. Without one, three - at feed size a
+  fourth word is a grey smear.
+- **A number, a name or a date** beats every adjective available to you. `title.py` sees names
+  only in sentence case; in Title Case it says so, and you check the title yourself.
 - **Two all-caps words is the ceiling** before a title reads as spam.
 
 ## Write ten, keep two
 
-Generate ten titles, run them all through `title.py`, show the user the top three with their scores
+Generate ten titles, run them all through `title.py` with `--lang` from `channel.md`, show the user the top three with their scores
 and the specific issue on each. For the winner, write the thumbnail brief: the expression, the
-framing, the three words, and what the background has to do to hold contrast at feed size.
+framing, the words, and what the background has to do to hold contrast at feed size.
 
 ## The gate
 

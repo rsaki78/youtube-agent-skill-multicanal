@@ -105,7 +105,8 @@ Write `.claude/youtube/style.md` with these sections:
 - **Pillars.** Three or four recurring kinds of video, each with one title from the ten. A video
   that fits no pillar is a reason to ask why it is being made.
 - **Packaging rules.** The title shapes the peers' outliers use (from `swipe.py` in `/yt-refs`),
-  the words banned by `voice.md`, and thumbnail rules: words on it, face or not. Colours and type
+  the words banned by `voice.md`, and thumbnail rules: face or not, and the word limit as a line `Thumbnail words: 3` - the
+  creator's number, which `/yt-package` passes to `title.py`. Colours and type
   stay `pending /yt-brand`.
 - **Numbers.** No invented benchmarks - no "a good CTR is". For the first ten videos the only target
   is shipping them on the cadence. After ten, the baseline is the channel's OWN median: views,

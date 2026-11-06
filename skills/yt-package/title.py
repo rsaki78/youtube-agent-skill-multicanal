@@ -4,6 +4,7 @@
     python3 title.py --title "..." --thumb "AI RAN IT"
     python3 title.py titles.txt            # one per line, ranked
     python3 title.py --title "..." --json
+    python3 title.py --title "..." --thumb "..." --lang es-MX --thumb-max 5
 
 The pairing is the unit, not the title. A title that repeats the thumbnail text wastes half the
 click surface, and that is the single most common mistake this checks for.
@@ -11,8 +12,17 @@ click surface, and that is the single most common mistake this checks for.
 Length: YouTube truncates around 60 characters on desktop search and around 40 on a mobile home
 feed. Both limits are reported because they are different failures - a desktop truncation loses the
 tail, a mobile one can lose the subject.
+
+--lang is the channel's `language:` (guessed from the text without it). --thumb-max is the most
+words the channel allows on a thumbnail, from style.md; 4 without it.
+
+Names: a capitalised word that does not start a sentence counts as a name, which works in sentence
+case ("Cómo murió el padre Sabás Reyes") and cannot work in Title Case, where every word is
+capitalised. There the tool says it cannot tell, and you check.
 """
 import json, re, sys, os
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "yt-voice"))
+from lang import STOP as LANG_STOP, fold, pick, utf8_out, words as lang_words  # noqa: E402
 
 DESKTOP, MOBILE, HARD = 60, 40, 100
 VAGUE = {"amazing","incredible","insane","crazy","huge","massive","ultimate","best","powerful",
@@ -20,7 +30,32 @@ VAGUE = {"amazing","incredible","insane","crazy","huge","massive","ultimate","be
 STOP = {"the","a","an","of","for","to","in","on","and","or","is","are","with","your","you","my","i",
         "this","that","it","how","what","why"}
 
-def words(t): return re.findall(r"[a-z0-9']+", t.lower())
+VAGUE_ES = {"increible","impresionante","brutal","loco","locura","enorme","masivo","definitivo",
+            "mejor","poderoso","secreto","revolucionario","alucinante","epico","perfecto","completo",
+            "todo","fascinante","sorprendente","tremendo"}
+WORDS = {"en": (VAGUE, STOP), "es": (VAGUE_ES, LANG_STOP["es"] | {"como", "que", "por", "quien", "cual"})}
+L, THUMB_MAX = "en", None   # set from --lang and --thumb-max in main()
+
+def words(t):
+    # English keeps its original tokens so its results do not move; Spanish folds the accents, so
+    # "MURIÓ" and "murió" are the same word and "Sabás" stays one
+    return re.findall(r"[a-z0-9']+", t.lower()) if L == "en" else lang_words(t)
+
+def names(t):
+    """Capitalised words that do not start a sentence, or None when the title is in Title Case and
+    a name cannot be told from any other word."""
+    toks = re.findall(r"[^\W\d_][\w'.-]*|[:.!?¿¡]", t)
+    stop = WORDS[L][1]
+    content, caps, found, start = 0, 0, [], True
+    for w in toks:
+        if w in ":.!?¿¡": start = True; continue
+        if fold(w) in stop and not start: continue
+        if not start:
+            content += 1
+            if w[:1].isupper(): caps += 1; found.append(w)
+        start = False
+    if content >= 3 and caps / content >= 0.6: return None
+    return [w for w in found if not w.isupper() or len(w) <= 4]
 
 def check(title, thumb=None):
     t = title.strip()
@@ -35,24 +70,32 @@ def check(title, thumb=None):
     caps = [w for w in t.split() if len(w) > 2 and w.isupper()]
     if len(caps) > 2: issues.append(("shouting", f"{len(caps)} all-caps words - two is the ceiling before it reads as spam"))
     elif caps: good.append(f"{len(caps)} all-caps word for emphasis")
-    v = [w for w in words(t) if w in VAGUE]
+    VG, SW = WORDS[L]
+    v = [w for w in words(t) if w in VG]
     if v: issues.append(("vague", f"{', '.join(sorted(set(v)))} - swap for a number, a name or a date"))
     nums = re.findall(r"\d[\d,.]*%?", t)
+    named = names(t)
     if nums: good.append(f"carries a concrete figure ({', '.join(nums[:3])})")
+    elif named: good.append(f"names something ({' '.join(named[:3])})")
+    elif named is None: issues.append(("no-number", "no number or date, and in Title Case a name cannot be told apart - "
+                                                    "if it names a person or a place, ignore this"))
     else: issues.append(("no-number", "no number, date or name - the most reliable single fix"))
     if t.endswith("?"): good.append("open question in the title")
-    front = [w for w in words(t)[:3] if w not in STOP]
+    front = [w for w in words(t)[:3] if w not in SW]
     if not front: issues.append(("front-load", "the first three words are all filler - move the subject forward"))
     if thumb:
-        tw, hw = set(words(t)) - STOP, set(words(thumb)) - STOP
+        tw, hw = set(words(t)) - SW, set(words(thumb)) - SW
         shared = tw & hw
         if shared:
             issues.append(("duplicate", f"thumbnail repeats the title on {', '.join(sorted(shared))} - "
                                         "the thumbnail should say what the title does not"))
         else:
             good.append("thumbnail and title carry different words")
-        if len(words(thumb)) > 4:
+        n_thumb = len(thumb.split())
+        if THUMB_MAX is None and len(words(thumb)) > 4:
             issues.append(("thumb-length", f"{len(words(thumb))} words on the thumbnail - three is the ceiling at feed size"))
+        elif THUMB_MAX is not None and n_thumb > THUMB_MAX:
+            issues.append(("thumb-length", f"{n_thumb} words on the thumbnail - this channel's limit is {THUMB_MAX}"))
     score = max(0, min(100, 100 - 14 * len(issues) + 4 * len(good)))
     return {"title": t, "chars": n, "score": score, "issues": issues, "good": good}
 
@@ -63,15 +106,23 @@ def show(r):
     for m in r["good"]:      print(f"    ok              {m}")
 
 def main():
+    global L, THUMB_MAX
+    utf8_out()
     a = sys.argv[1:]
     as_json = "--json" in a; a = [x for x in a if x != "--json"]
+    if "--thumb-max" in a:
+        i = a.index("--thumb-max"); THUMB_MAX = int(a[i + 1]); a = a[:i] + a[i + 2:]
+    lang_given = "--lang" in a
+    L, a = pick(a)
     thumb = a[a.index("--thumb") + 1] if "--thumb" in a else None
     if "--title" in a:
-        rows = [check(a[a.index("--title") + 1], thumb)]
+        lines = [a[a.index("--title") + 1]]
     elif a and os.path.exists(a[0]):
-        rows = [check(l, thumb) for l in open(a[0]).read().splitlines() if l.strip()]
+        lines = [l for l in open(a[0], encoding="utf-8-sig").read().splitlines() if l.strip()]
     else:
         print(__doc__); sys.exit(1)
+    if not lang_given: L = pick([], " ".join(lines + [thumb or ""]))[0]
+    rows = [check(l, thumb) for l in lines]
     rows.sort(key=lambda r: -r["score"])
     if as_json: print(json.dumps(rows, indent=1)); return
     for r in rows: show(r)

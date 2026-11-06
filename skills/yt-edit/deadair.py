@@ -3,6 +3,7 @@
 
     python3 deadair.py transcript.srt            # or .vtt, or whisper .json
     python3 deadair.py transcript.srt --floor 0.35 --json
+    python3 deadair.py transcript.srt --lang es-MX       # the channel's language: from channel.md
 
 Finds three things and prints the cuts as a list you can act on, newest problem first:
   DEAD    gaps between spoken cues longer than the floor
@@ -11,11 +12,21 @@ Finds three things and prints the cuts as a list you can act on, newest problem 
 
 WHAT IT DOES NOT DO. It does not cut the file. It prints an EDL, the total it would remove, and the
 runtime you would land on, and you apply it in whatever editor you use. Nothing here touches media.
+Fillers are listed for English and Spanish; without --lang the language is guessed from the cues.
 """
 import json, os, re, sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "yt-voice"))
+from lang import fold, pick, utf8_out, words  # noqa: E402
 
 FILLER_ONLY = re.compile(r"^[\s,.-]*((um+|uh+|er+|ah+|so|okay|ok|right|yeah|like|anyway|basically|"
                          r"actually|you know|i mean|let me see|hold on)[\s,.-]*)+$", re.I)
+# Spanish, matched against the folded cue. "no" and "ya" are left out: alone on a cue they are
+# usually an answer, not a filler.
+FILLER_ES = re.compile(r"^[\s,.¿?¡!-]*((e+h+|e+m+|m+|este|o sea|bueno|pues|ok|okay|vale|entonces|"
+                       r"digamos|tipo|a ver|como que|basicamente|literalmente|verdad|o+k)[\s,.¿?¡!-]*)+$", re.I)
+L = "en"   # set from --lang in main()
+
+def is_filler(t): return bool(FILLER_ONLY.match(t)) if L == "en" else bool(FILLER_ES.match(fold(t)))
 
 def parse_ts(s):
     s = s.strip().replace(",", ".")
@@ -38,20 +49,25 @@ def load(path):
             cur[2].append(line.strip())
     return [(a, b, " ".join(t)) for a, b, t in cues if t]
 
-def norm(t): return re.sub(r"[^a-z ]", "", t.lower()).split()
+def norm(t): return re.sub(r"[^a-z ]", "", t.lower()).split() if L == "en" else words(t)
 
 def main():
+    global L
+    utf8_out()
     a = sys.argv[1:]
     as_json = "--json" in a; a = [x for x in a if x != "--json"]
+    lang_given = "--lang" in a
+    L, a = pick(a)
     floor = float(a[a.index("--floor") + 1]) if "--floor" in a else 0.45
     a = [x for x in a if not x.startswith("--") and not re.match(r"^[\d.]+$", x)]
     if not a or not os.path.exists(a[0]): print(__doc__); sys.exit(1)
     cues = load(a[0])
     if not cues: print("no cues found - is this an srt, vtt or whisper json?"); sys.exit(1)
+    if not lang_given: L = pick([], " ".join(c[2] for c in cues))[0]
     dur = cues[-1][1]
     cuts = []
     for i, (s, e, t) in enumerate(cues):
-        if FILLER_ONLY.match(t):
+        if is_filler(t):
             cuts.append({"kind": "FILLER", "start": s, "end": e, "why": t.strip()[:48]})
         if i:
             gap = s - cues[i - 1][1]
@@ -62,9 +78,9 @@ def main():
         # A restart is compared against the last cue that was actually SPEECH. Comparing against
         # the literal previous cue misses every retake with an "um" between the two attempts, which
         # is most of them.
-        if t.strip() and not FILLER_ONLY.match(t):
+        if t.strip() and not is_filler(t):
             j = i - 1
-            while j >= 0 and (FILLER_ONLY.match(cues[j][2]) or not cues[j][2].strip()): j -= 1
+            while j >= 0 and (is_filler(cues[j][2]) or not cues[j][2].strip()): j -= 1
             if j >= 0:
                 a1, b1 = norm(cues[j][2])[:5], norm(t)[:5]
                 if len(a1) >= 3 and a1 == b1:
